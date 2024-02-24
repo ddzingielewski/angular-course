@@ -17,5 +17,12 @@
       "dom"
     ],
     "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    // ...
+    "disableTypeScriptVersionCheck": true
   }
 }

@@ -42,4 +42,8 @@ export class AppComponent implements AfterViewInit{
     )
   }
 
+  trackCourse(index: number, cource: Course){
+    return cource.id
+  }
+
 }

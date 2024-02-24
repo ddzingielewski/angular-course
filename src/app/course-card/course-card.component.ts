@@ -12,7 +12,7 @@ export class CourseCardComponent implements OnInit, AfterViewInit {
   @Input()
   course: Course;
 
-  @Input('index')
+  @Input({alias: 'index', required: true})
   cardIndex: number;
 
   @Input()

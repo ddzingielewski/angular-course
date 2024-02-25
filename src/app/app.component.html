@@ -7,28 +7,31 @@
 <button (click)="onCoursesEdit()">Edit Courses</button>
 
 <!-- <div class="courses" #container *ngIf="courses[0] as course"> -->
-<div class="courses">
-    <ng-template #noImage let-courseName="description">
-        <p class="warn">{{courseName}} has not image yet.</p>
-        <img src="/assets/empty-image.png" alt="default image">
-    </ng-template>
 
-    @for (course of courses; track trackCourse;){
-        <p>{{course.description}}</p>
-        <course-card (courseSelected)="onCourseSelected($event)" [course]="course" [index]="$index+1" [noImageTpl]="noImage">
-        <course-image [imageUrl]="course.iconUrl"></course-image>
-        <div class="course-description">
-            {{course.longDescription}}
+    @defer{
+        <div class="courses">
+            <ng-template #noImage let-courseName="description">
+                <p class="warn">{{courseName}} has not image yet.</p>
+                <img src="/assets/empty-image.png" alt="default image">
+            </ng-template>
+        
+            @for (course of courses; track trackCourse;){
+                <p>{{course.description}}</p>
+                <course-card (courseSelected)="onCourseSelected($event)" [course]="course" [index]="$index+1" [noImageTpl]="noImage">
+                <course-image [imageUrl]="course.iconUrl"></course-image>
+                <div class="course-description">
+                    {{course.longDescription}}
+                </div>
+            </course-card>
+            }
+            @empty {
+                <h1>No elements found!</h1>
+            }
+            <!-- <course-card #cardRef (courseSelected)="onCourseSelected($event)" [course]="course" [noImageTpl]="noImage">
+                <course-image [imageUrl]="course.iconUrl"></course-image>
+                <div class="course-description">
+                    {{course.longDescription}}
+                </div>
+            </course-card> -->
         </div>
-    </course-card>
     }
-    @empty {
-        <h1>No elements found!</h1>
-    }
-    <!-- <course-card #cardRef (courseSelected)="onCourseSelected($event)" [course]="course" [noImageTpl]="noImage">
-        <course-image [imageUrl]="course.iconUrl"></course-image>
-        <div class="course-description">
-            {{course.longDescription}}
-        </div>
-    </course-card> -->
-</div>
